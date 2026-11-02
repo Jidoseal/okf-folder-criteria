@@ -1,6 +1,6 @@
 {
-  "criteria_version": "0.9",
-  "note": "Results measured on 2026-11-01. The two scan paths differ on the mixed folder: see CRITERIA.md section 8.",
+  "criteria_version": "0.9.1",
+  "note": "Results measured on 2026-11-01 with the browser Self-Check live on jidoseal.com and engine 0.1.5. On the mixed folder the two scan paths differ on dist/ and on the root: see CRITERIA.md section 8.",
   "folders": {
     "examples/conforming": {
       "both_paths": {
@@ -11,7 +11,8 @@
           "gold": 50.0
         },
         "score": 83,
-        "root": "87e577d6a6ef3608a506053c2d64657358fb0be22c870b2df487e04e27e3fb52"
+        "root": "87e577d6a6ef3608a506053c2d64657358fb0be22c870b2df487e04e27e3fb52",
+        "okf_section_11": "3 of 3 rules pass"
       },
       "files": {
         "policy.md": "silver",
@@ -40,31 +41,31 @@
           "silver-aliases.md": "silver",
           "silver-bom.md": "silver",
           "silver.md": "silver"
-        }
+        },
+        "okf_section_11": "1 of 3 rules pass"
       },
       "browser": {
         "grade": "none",
-        "file_count": 11,
+        "file_count": 9,
         "coverage": {
-          "bronze": 72.7,
-          "silver": 45.5,
-          "gold": 18.2
+          "bronze": 77.8,
+          "silver": 55.6,
+          "gold": 22.2
         },
-        "score": 45,
+        "score": 52,
         "root_note": "Depends on the decoded text of silver-bom.md; not a raw-bytes root. Compare the command-line root.",
         "files": {
-          ".hidden.md": "none",
           "bronze-blank-owner.md": "bronze",
           "bronze.md": "bronze",
           "gold-past-review.md": "gold",
           "gold.md": "gold",
-          "notes/index.md": "none",
-          "notes/none-malformed.md": "bronze",
+          "notes/none-malformed.md": "none",
           "notes/none-no-frontmatter.md": "none",
           "silver-aliases.md": "silver",
           "silver-bom.md": "silver",
           "silver.md": "silver"
-        }
+        },
+        "okf_section_11": "1 of 3 rules pass"
       }
     }
   }

@@ -12,7 +12,7 @@ next_review_at: 2027-11-01
 
 # OKF Folder Criteria
 
-Public, versioned criteria for the documents your AI tools work from. Current version: **[0.9](CRITERIA.md)**, draft for comment.
+Public, versioned criteria for the documents your AI tools work from. Current version: **[0.9.1](CRITERIA.md)**, draft for comment.
 
 Each document must state its type, title, description, date and accountable owner. The folder needs a fingerprint tied to a source revision.
 
@@ -34,8 +34,8 @@ Pick a folder, scan it, and compare the result with these rules. Or apply the ru
 
 These criteria are not a Google document or an ISO standard. JidoSeal holds no ISO accreditation. Nobody endorses them, and JidoSeal is not affiliated with Google or ISO.
 
-**Licence:** not set yet. We will name one in a later version.
+**Licence:** [CC BY 4.0](LICENSE). The licence covers this repository only. It does not give any right to the JidoSeal name or marks.
 
 The scanner's source is not part of this repository. This repository holds the rules, the schema, the data and the examples.
 
-The `examples` folders contain files that fail on purpose. The command line skips them here, through `.jidoseal/config.yaml`. The browser Self-Check does not read that file, so scan the repository root on the command line, or expect those failures.
+The `examples` folders contain files that fail on purpose. Both scan paths skip them here, through `.jidoseal/config.yaml`.

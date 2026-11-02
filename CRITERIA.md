@@ -1,6 +1,6 @@
 ---
 type: specification
-title: OKF Folder Criteria v0.9
+title: OKF Folder Criteria v0.9.1
 description: The public check rules for a folder of working documents used by AI tools.
 timestamp: 2026-11-01
 owner: JidoSeal
@@ -10,11 +10,11 @@ reviewed_at: 2026-11-01
 next_review_at: 2027-11-01
 ---
 
-# OKF Folder Criteria, version 0.9
+# OKF Folder Criteria, version 0.9.1
 
 | | |
 |---|---|
-| Version | 0.9, draft for comment |
+| Version | 0.9.1, draft for comment |
 | Date | 2026-11-01 |
 | Scheme owner | JidoSeal |
 | Written for | Folders in Open Knowledge Format (OKF) v0.2 |
@@ -48,9 +48,9 @@ Pick a folder, scan it. Two scan paths apply these rules today: the browser Self
 | ID | Rule | Who checks |
 |---|---|---|
 | S1 | A file is in scope if its name ends in `.md`, in lower case. | Tool |
-| S2 | `index.md` and `log.md` are out of scope at any depth. OKF reserves these names. | Tool, command line only (section 8) |
-| S3 | Files and folders whose names start with a dot are out of scope. | Tool, command line only (section 8) |
-| S4 | The supplier may exclude paths by regular expression, under `machine_extra_excludes` in `.jidoseal/config.yaml`. A reader should ask to see this file. | Tool, command line only (section 8) |
+| S2 | `index.md` and `log.md` are out of scope at any depth. OKF reserves these names. | Tool |
+| S3 | Files and folders whose names start with a dot are out of scope. | Tool |
+| S4 | The supplier may exclude paths by regular expression, under `machine_extra_excludes` in `.jidoseal/config.yaml`. A reader should ask to see this file. If the file has an unknown key, a wrong type or a pattern that will not compile, the scan is refused. | Tool (section 8 lists the differences) |
 | S5 | A symbolic link that leads outside the folder stops the whole scan. | Tool, command line only |
 | P1 | Frontmatter is the block between a first line that is exactly `---` and a later line that is exactly `---`. A byte order mark is removed first. Leading tabs are expanded. Full-width colons on recognised keys are repaired. | Tool |
 | P2 | A value is populated unless it is null, a blank or whitespace-only string, an empty list or an empty mapping. Numbers, booleans and dates are populated. | Tool |
@@ -130,7 +130,7 @@ A one-byte change in a file changes the root. So does adding or removing an in-s
 
 ### Conformity
 
-A folder conforms to OKF Folder Criteria v0.9 if:
+A folder conforms to OKF Folder Criteria v0.9.1 if:
 
 1. every in-scope file is Silver or Gold, and
 2. the evidence records R1, R2 and R3.
@@ -139,34 +139,41 @@ Bronze is not enough. It tests only the OKF `type` field. Gold is an optional hi
 
 A supplier may show conformity without any JidoSeal tool. Apply the rules in this document and keep a technical file: one entry per rule ID, the result, and how it was found. The [examples](examples/expected.json) show the expected result for two small folders.
 
-## 7. The OKF gap: what is not checked today
+## 7. The OKF check
 
-OKF v0.2 section 11 sets three conformance rules. Bronze does not cover all three. **A grade here does not mean the folder conforms to OKF.** We do not validate full OKF today.
+OKF v0.2 section 11 sets three conformance rules. The scanner checks all three and reports them on a separate line: "OKF §11: x of 3 rules pass". Bronze, Silver and Gold do not depend on that line.
 
-| OKF section 11 rule | What the scanner does today | Status |
-|---|---|---|
-| 1. Every non-reserved `.md` file has a parseable YAML frontmatter block. | No check of its own. A file with no readable block gets grade `none`. The parser repairs some errors (rule P1), so a file can pass here and fail a strict YAML parser. | Planned for the next version |
-| 2. Every frontmatter block has a non-empty `type`. | Tested by F1. A native-language key also counts, so a file can pass F1 with no key spelled `type`. | Tested, with that exception |
-| 3. `index.md` and `log.md` follow their own sections when present. | Not tested. The command line skips these files. The browser Self-Check grades them as ordinary files, and does not test their structure. | Planned for the next version |
+**A grade here does not mean the folder conforms to OKF.** Bronze does not cover all three rules. Read the OKF line for that. The line covers section 11 only.
 
-The next version plans a separate result line: "OKF section 11: x of 3 rules pass". The plan leaves Bronze, Silver and Gold unchanged.
+| OKF section 11 rule | How the scanner checks it |
+|---|---|
+| 1. Every non-reserved `.md` file has a parseable YAML frontmatter block. | Read strictly, with no repairs. So a file can pass P1 and fail this rule. A file with no block fails. |
+| 2. Every frontmatter block has a non-empty `type`. | The key must be spelled `type`. A native-language key passes F1 but not this rule. A file with no block fails. |
+| 3. `index.md` and `log.md` follow their own sections when present. | `index.md`: no frontmatter, except that one at the folder root may carry `okf_version`, and at least one heading. `log.md`: any frontmatter must parse, and `##` headings must be dates in `YYYY-MM-DD` form, newest first. A folder with neither file passes. |
+
+Where the line appears:
+
+- Browser Self-Check: on the results screen, now.
+- Command line: from version 0.1.5. The version on PyPI today is 0.1.4, which does not print it.
+- Certificate: not recorded yet.
 
 The other way round, F2 to F5 and G1 to G4 go beyond OKF. OKF requires only `type`. Missing these fields does not make a file fail OKF.
 
 ## 8. Where the two scan paths differ
 
-Results can differ between the paths. Compare like with like, and name the path in the evidence.
+The two paths now agree on `index.md` and `log.md`, on dot-files and dot-folders, on `.jidoseal/config.yaml` excludes, and on malformed YAML. Malformed YAML such as `type: [unclosed` fails on both paths and gets grade `none`.
+
+These differences remain. Compare like with like, and name the path in the evidence.
 
 | Case | Command line | Browser Self-Check |
 |---|---|---|
-| `index.md`, `log.md` | Skipped | Graded |
-| Dot-files and dot-folders | Skipped | Graded, except the folders listed below |
-| `.jidoseal/config.yaml` excludes | Applied | Not read |
 | Folders `node_modules`, `.git`, `.github`, `.next`, `dist`, `build`, `extensions`, `venv`, `.venv`, `virtualenv`, `site-packages`, `__pycache__`, `.openclaw`, and `docs/plugins`, `docs/providers`, `docs/reference` | Graded, unless a dot-folder or excluded | Skipped |
-| Some malformed YAML, such as `type: [unclosed` | Fails to parse, grade `none` | Reads the value as text, can reach Bronze or above |
 | Fingerprint of a file with a byte order mark | Hashes raw bytes | Hashes the decoded text, so the root can differ |
+| Frontmatter written with an explicit key (`? type`) or as one flow mapping (`{type: note}`) | Parses | Refused, grade `none` |
+| Patterns in `machine_extra_excludes` | Python regular expressions | JavaScript regular expressions. Python-only syntax such as `\A`, `\Z` and `(?P` is refused. `\w`, `\d` and `\b` read only ASCII, so a file name with other characters can match differently |
+| Record of `.jidoseal/config.yaml` | sha256 written to the manifest | sha256 shown on the results screen. A certificate from the browser does not record it yet |
 
-Because of these differences, the browser path can leave out a file the command line grades, and the other way round. These are differences in the tools as they stand today. They are not extra rules. See [examples/expected.json](examples/expected.json) for both results on one folder.
+These are differences in the tools as they stand today. They are not extra rules. See [examples/expected.json](examples/expected.json) for both results on one folder.
 
 ## 9. What these criteria do not show
 
@@ -188,7 +195,7 @@ This is a draft. We want comments, above all from buyers and from people who bui
 
 To report an error, give the version, the rule ID, a small example file, what you expected and what you saw. If the scanner and this document disagree, tell us which path you used. We will correct one of them and record it in the change log.
 
-An issue here is not an appeal against a certificate decision. This repository does not provide an appeals route.
+An issue here is not an appeal against a certificate decision. To appeal, see <https://jidoseal.com/vendors#conflict-and-appeals>.
 
 ## 12. Versions
 
