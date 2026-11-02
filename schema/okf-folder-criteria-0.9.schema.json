@@ -1,0 +1,248 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Jidoseal/okf-folder-criteria/blob/v0.9/schema/okf-folder-criteria-0.9.schema.json",
+  "title": "OKF Folder Criteria v0.9: one document's parsed frontmatter",
+  "description": "Root schema = Silver, the grade conformity needs. Apply to parsed YAML frontmatter. Covers English keys only; see data/key-aliases.json for native-language keys. Presence only. This is not an OKF validator; see CRITERIA.md section 7.",
+  "$defs": {
+    "populated": {
+      "not": {
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "type": "string",
+            "pattern": "^\\s*$"
+          },
+          {
+            "type": "array",
+            "maxItems": 0
+          },
+          {
+            "type": "object",
+            "maxProperties": 0
+          }
+        ]
+      }
+    },
+    "bronze": {
+      "title": "Bronze: F1",
+      "type": "object",
+      "allOf": [
+        {
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "type": {
+              "$ref": "#/$defs/populated"
+            }
+          }
+        }
+      ]
+    },
+    "silver": {
+      "title": "Silver: F1 to F5",
+      "allOf": [
+        {
+          "$ref": "#/$defs/bronze"
+        },
+        {
+          "$comment": "F2",
+          "allOf": [
+            {
+              "required": [
+                "title"
+              ],
+              "properties": {
+                "title": {
+                  "$ref": "#/$defs/populated"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "$comment": "F3",
+          "anyOf": [
+            {
+              "required": [
+                "description"
+              ],
+              "properties": {
+                "description": {
+                  "$ref": "#/$defs/populated"
+                }
+              }
+            },
+            {
+              "required": [
+                "desc"
+              ],
+              "properties": {
+                "desc": {
+                  "$ref": "#/$defs/populated"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "$comment": "F4",
+          "anyOf": [
+            {
+              "required": [
+                "timestamp"
+              ],
+              "properties": {
+                "timestamp": {
+                  "$ref": "#/$defs/populated"
+                }
+              }
+            },
+            {
+              "required": [
+                "updated"
+              ],
+              "properties": {
+                "updated": {
+                  "$ref": "#/$defs/populated"
+                }
+              }
+            },
+            {
+              "required": [
+                "created"
+              ],
+              "properties": {
+                "created": {
+                  "$ref": "#/$defs/populated"
+                }
+              }
+            },
+            {
+              "required": [
+                "date"
+              ],
+              "properties": {
+                "date": {
+                  "$ref": "#/$defs/populated"
+                }
+              }
+            },
+            {
+              "required": [
+                "generated"
+              ],
+              "properties": {
+                "generated": {
+                  "type": "object",
+                  "required": [
+                    "at"
+                  ],
+                  "properties": {
+                    "at": {
+                      "$ref": "#/$defs/populated"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "$comment": "F5",
+          "anyOf": [
+            {
+              "required": [
+                "owner"
+              ],
+              "properties": {
+                "owner": {
+                  "$ref": "#/$defs/populated"
+                }
+              }
+            },
+            {
+              "required": [
+                "author"
+              ],
+              "properties": {
+                "author": {
+                  "$ref": "#/$defs/populated"
+                }
+              }
+            },
+            {
+              "required": [
+                "generated"
+              ],
+              "properties": {
+                "generated": {
+                  "type": "object",
+                  "required": [
+                    "by"
+                  ],
+                  "properties": {
+                    "by": {
+                      "$ref": "#/$defs/populated"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "gold": {
+      "title": "Gold: F1 to F5, G1 to G4",
+      "allOf": [
+        {
+          "$ref": "#/$defs/silver"
+        },
+        {
+          "required": [
+            "status"
+          ],
+          "properties": {
+            "status": {
+              "$ref": "#/$defs/populated"
+            }
+          }
+        },
+        {
+          "required": [
+            "review_policy"
+          ],
+          "properties": {
+            "review_policy": {
+              "$ref": "#/$defs/populated"
+            }
+          }
+        },
+        {
+          "required": [
+            "reviewed_at"
+          ],
+          "properties": {
+            "reviewed_at": {
+              "$ref": "#/$defs/populated"
+            }
+          }
+        },
+        {
+          "required": [
+            "next_review_at"
+          ],
+          "properties": {
+            "next_review_at": {
+              "$ref": "#/$defs/populated"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "$ref": "#/$defs/silver"
+}

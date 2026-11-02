@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Jidoseal/okf-folder-criteria/blob/v0.9/schema/evidence-0.9.schema.json",
+  "title": "OKF Folder Criteria v0.9: evidence record",
+  "description": "R1, R2 and R3. Recorded by the supplier. The scanner computes root but does not test source_revision or folder.",
+  "type": "object",
+  "required": [
+    "criteria_version",
+    "folder",
+    "source_revision",
+    "root",
+    "scan_path",
+    "date"
+  ],
+  "properties": {
+    "criteria_version": {
+      "const": "0.9"
+    },
+    "folder": {
+      "type": "string",
+      "minLength": 1,
+      "description": "R3"
+    },
+    "source_revision": {
+      "type": "string",
+      "minLength": 1,
+      "description": "R2: a git commit or a dated snapshot"
+    },
+    "root": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "R1"
+    },
+    "scan_path": {
+      "enum": [
+        "command line",
+        "browser",
+        "by hand"
+      ]
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}

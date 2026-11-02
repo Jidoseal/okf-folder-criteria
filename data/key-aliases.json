@@ -1,0 +1,131 @@
+{
+  "locales": {
+    "de": {
+      "Autor": "owner",
+      "Beschreibung": "description",
+      "Datum": "timestamp",
+      "Titel": "title",
+      "Typ": "type",
+      "Verantwortlich": "owner",
+      "autor": "owner",
+      "beschreibung": "description",
+      "datum": "timestamp",
+      "titel": "title",
+      "typ": "type",
+      "verantwortlich": "owner"
+    },
+    "es": {
+      "autor": "owner",
+      "descripcion": "description",
+      "descripción": "description",
+      "estado": "status",
+      "fecha": "timestamp",
+      "propietario": "owner",
+      "tipo": "type",
+      "titulo": "title",
+      "título": "title"
+    },
+    "fr": {
+      "auteur": "owner",
+      "horodatage": "timestamp",
+      "proprietaire": "owner",
+      "propriétaire": "owner",
+      "statut": "status",
+      "titre": "title",
+      "étiquette": "type"
+    },
+    "hi": {
+      "तारीख": "timestamp",
+      "तारीख़": "timestamp",
+      "दिनांक": "timestamp",
+      "प्रकार": "type",
+      "लेखक": "owner",
+      "विवरण": "description",
+      "शीर्षक": "title",
+      "स्थिति": "status",
+      "स्वामी": "owner"
+    },
+    "ja": {
+      "タイトル": "title",
+      "作成日": "timestamp",
+      "作成者": "owner",
+      "日付": "timestamp",
+      "概要": "description",
+      "状態": "status",
+      "種類": "type",
+      "著者": "owner",
+      "説明": "description"
+    },
+    "ko": {
+      "날짜": "timestamp",
+      "담당자": "owner",
+      "상태": "status",
+      "설명": "description",
+      "유형": "type",
+      "작성일": "timestamp",
+      "작성자": "owner",
+      "제목": "title",
+      "종류": "type"
+    },
+    "pt-BR": {
+      "autor": "owner",
+      "data": "timestamp",
+      "descricao": "description",
+      "descrição": "description",
+      "responsavel": "owner",
+      "responsável": "owner",
+      "situacao": "status",
+      "situação": "status",
+      "tipo": "type",
+      "titulo": "title",
+      "título": "title"
+    },
+    "pt-PT": {
+      "autor": "owner",
+      "data": "timestamp",
+      "descricao": "description",
+      "descrição": "description",
+      "estado": "status",
+      "responsavel": "owner",
+      "responsável": "owner",
+      "tipo": "type",
+      "titulo": "title",
+      "título": "title"
+    },
+    "ru": {
+      "автор": "owner",
+      "дата": "timestamp",
+      "заголовок": "title",
+      "название": "title",
+      "описание": "description",
+      "ответственный": "owner",
+      "состояние": "status",
+      "статус": "status",
+      "тип": "type"
+    },
+    "zh-CN": {
+      "作者": "owner",
+      "描述": "description",
+      "日期": "timestamp",
+      "时间": "timestamp",
+      "标题": "title",
+      "状态": "status",
+      "简介": "description",
+      "类型": "type",
+      "负责人": "owner"
+    },
+    "zh-TW": {
+      "作者": "owner",
+      "描述": "description",
+      "日期": "timestamp",
+      "時間": "timestamp",
+      "標題": "title",
+      "狀態": "status",
+      "簡介": "description",
+      "負責人": "owner",
+      "類型": "type"
+    }
+  },
+  "note": "Native-language frontmatter keys the scanner reads as the English field. Each key is an accepted spelling; its value is the English field it counts as. Data only.",
+  "source_table_version": "1.0.0"
+}

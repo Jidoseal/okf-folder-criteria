@@ -1,0 +1,71 @@
+{
+  "criteria_version": "0.9",
+  "note": "Results measured on 2026-11-01. The two scan paths differ on the mixed folder: see CRITERIA.md section 8.",
+  "folders": {
+    "examples/conforming": {
+      "both_paths": {
+        "grade": "silver",
+        "coverage": {
+          "bronze": 100.0,
+          "silver": 100.0,
+          "gold": 50.0
+        },
+        "score": 83,
+        "root": "87e577d6a6ef3608a506053c2d64657358fb0be22c870b2df487e04e27e3fb52"
+      },
+      "files": {
+        "policy.md": "silver",
+        "runbook.md": "gold"
+      }
+    },
+    "examples/mixed": {
+      "command_line": {
+        "grade": "none",
+        "file_count": 10,
+        "coverage": {
+          "bronze": 70.0,
+          "silver": 50.0,
+          "gold": 20.0
+        },
+        "score": 47,
+        "root": "7491d7386b0d3462c0479b65549f0daf38cdbd950806e9a9a3781dc7df4e9bc7",
+        "files": {
+          "bronze-blank-owner.md": "bronze",
+          "bronze.md": "bronze",
+          "dist/skipped-by-browser.md": "none",
+          "gold-past-review.md": "gold",
+          "gold.md": "gold",
+          "notes/none-malformed.md": "none",
+          "notes/none-no-frontmatter.md": "none",
+          "silver-aliases.md": "silver",
+          "silver-bom.md": "silver",
+          "silver.md": "silver"
+        }
+      },
+      "browser": {
+        "grade": "none",
+        "file_count": 11,
+        "coverage": {
+          "bronze": 72.7,
+          "silver": 45.5,
+          "gold": 18.2
+        },
+        "score": 45,
+        "root_note": "Depends on the decoded text of silver-bom.md; not a raw-bytes root. Compare the command-line root.",
+        "files": {
+          ".hidden.md": "none",
+          "bronze-blank-owner.md": "bronze",
+          "bronze.md": "bronze",
+          "gold-past-review.md": "gold",
+          "gold.md": "gold",
+          "notes/index.md": "none",
+          "notes/none-malformed.md": "bronze",
+          "notes/none-no-frontmatter.md": "none",
+          "silver-aliases.md": "silver",
+          "silver-bom.md": "silver",
+          "silver.md": "silver"
+        }
+      }
+    }
+  }
+}
