@@ -12,7 +12,7 @@ next_review_at: 2027-11-01
 
 # OKF Folder Criteria
 
-Public, versioned criteria for the documents your AI tools work from. Current version: **[0.9.1](CRITERIA.md)**, draft for comment.
+Public, versioned criteria for the documents your AI tools work from. Current version: **[0.9.2](CRITERIA.md)**, draft for comment.
 
 Each document must state its type, title, description, date and accountable owner. The folder needs a fingerprint tied to a source revision.
 

@@ -12,6 +12,14 @@ next_review_at: 2027-11-01
 
 # Change log
 
+## 0.9.2, 2026-11-02
+
+A wording change. Field rules, grades and conformity do not change.
+
+- Section 11 no longer has an appeals route. The checks are binary and repeatable, so there is a report-an-error route instead: re-run the published check, email support@jidoseal.com with the result, and a confirmed tool error is fixed and re-run at no charge.
+- The sample assessor clause asks for published criteria and a route to report an error.
+- The evidence schema accepts `criteria_version` 0.9.2.
+
 ## 0.9.1, 2026-11-01
 
 A correction. Field rules, grades and conformity do not change.

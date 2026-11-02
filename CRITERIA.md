@@ -1,8 +1,8 @@
 ---
 type: specification
-title: OKF Folder Criteria v0.9.1
+title: OKF Folder Criteria v0.9.2
 description: The public check rules for a folder of working documents used by AI tools.
-timestamp: 2026-11-01
+timestamp: 2026-11-02
 owner: JidoSeal
 status: draft
 review_policy: Reviewed at each version and at least every 12 months
@@ -10,11 +10,11 @@ reviewed_at: 2026-11-01
 next_review_at: 2027-11-01
 ---
 
-# OKF Folder Criteria, version 0.9.1
+# OKF Folder Criteria, version 0.9.2
 
 | | |
 |---|---|
-| Version | 0.9.1, draft for comment |
+| Version | 0.9.2, draft for comment |
 | Date | 2026-11-01 |
 | Scheme owner | JidoSeal |
 | Written for | Folders in Open Knowledge Format (OKF) v0.2 |
@@ -130,7 +130,7 @@ A one-byte change in a file changes the root. So does adding or removing an in-s
 
 ### Conformity
 
-A folder conforms to OKF Folder Criteria v0.9.1 if:
+A folder conforms to OKF Folder Criteria v0.9.2 if:
 
 1. every in-scope file is Silver or Gold, and
 2. the evidence records R1, R2 and R3.
@@ -195,7 +195,7 @@ This is a draft. We want comments, above all from buyers and from people who bui
 
 To report an error, give the version, the rule ID, a small example file, what you expected and what you saw. If the scanner and this document disagree, tell us which path you used. We will correct one of them and record it in the change log.
 
-An issue here is not an appeal against a certificate decision. To appeal, see <https://jidoseal.com/vendors#conflict-and-appeals>.
+There is no appeals process, because the checks are binary and repeatable. Anyone can re-run the published check on the same folder and get the same grade. If you think the tool got it wrong, email support@jidoseal.com with the folder's result. A confirmed tool error is fixed, and the folder is re-run at no charge. Details: <https://jidoseal.com/vendors#conflict-and-errors>.
 
 ## 12. Versions
 
