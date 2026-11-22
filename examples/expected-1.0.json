@@ -1,0 +1,76 @@
+{
+  "criteria_version": "1.0.0",
+  "note": "Worked out by hand from CRITERIA.md v1.0.0 on 2026-11-21. No tool computed these results: on that date no JidoSeal tool applies v1.0.0. Roots and file sets are the same as in expected.json (v0.9.1), because scope rules did not change. Coverage is the share of in-scope files at that grade or above. Score is the mean of the four coverage figures, rounded half up.",
+  "folders": {
+    "examples/conforming": {
+      "both_paths": {
+        "grade": "bronze",
+        "coverage": {
+          "okf-certified": 100.0,
+          "bronze": 100.0,
+          "silver": 50.0,
+          "gold": 0.0
+        },
+        "score": 63,
+        "root": "87e577d6a6ef3608a506053c2d64657358fb0be22c870b2df487e04e27e3fb52",
+        "okf_section_11": "3 of 3 rules pass",
+        "conforms": "yes, if the evidence also records R1, R2 and R3"
+      },
+      "files": {
+        "policy.md": "bronze",
+        "runbook.md": "silver"
+      }
+    },
+    "examples/mixed": {
+      "command_line": {
+        "grade": "none",
+        "file_count": 10,
+        "coverage": {
+          "okf-certified": 70.0,
+          "bronze": 50.0,
+          "silver": 20.0,
+          "gold": 0.0
+        },
+        "score": 35,
+        "root": "7491d7386b0d3462c0479b65549f0daf38cdbd950806e9a9a3781dc7df4e9bc7",
+        "files": {
+          "bronze-blank-owner.md": "okf-certified",
+          "bronze.md": "okf-certified",
+          "dist/skipped-by-browser.md": "none",
+          "gold-past-review.md": "silver",
+          "gold.md": "silver",
+          "notes/none-malformed.md": "none",
+          "notes/none-no-frontmatter.md": "none",
+          "silver-aliases.md": "bronze",
+          "silver-bom.md": "bronze",
+          "silver.md": "bronze"
+        },
+        "okf_section_11": "1 of 3 rules pass"
+      },
+      "browser": {
+        "grade": "none",
+        "file_count": 9,
+        "coverage": {
+          "okf-certified": 77.8,
+          "bronze": 55.6,
+          "silver": 22.2,
+          "gold": 0.0
+        },
+        "score": 39,
+        "root_note": "Depends on the decoded text of silver-bom.md; not a raw-bytes root. Compare the command-line root.",
+        "files": {
+          "bronze-blank-owner.md": "okf-certified",
+          "bronze.md": "okf-certified",
+          "gold-past-review.md": "silver",
+          "gold.md": "silver",
+          "notes/none-malformed.md": "none",
+          "notes/none-no-frontmatter.md": "none",
+          "silver-aliases.md": "bronze",
+          "silver-bom.md": "bronze",
+          "silver.md": "bronze"
+        },
+        "okf_section_11": "1 of 3 rules pass"
+      }
+    }
+  }
+}
